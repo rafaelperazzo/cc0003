@@ -7,9 +7,17 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: icc2021
+    networks:
+      - web
 
   adminer:
-    image: adminer
+    image: adminer:latest
     restart: always
     ports:
       - 8080:8080
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
